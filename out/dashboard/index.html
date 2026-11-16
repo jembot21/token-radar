@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied launch value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span><span class="blip"></span>
+      </div>
+      <div>
+        <h1>TOKEN RADAR</h1>
+        <p class="tagline">Every protocol that still records no token, ranked by what its launch would be worth.</p>
+      </div>
+    </div>
+    <p class="snapshot-line" id="snapshot-line">Sealed DefiLlama snapshot</p>
+  </div>
+</header>
+
+<main>
+  <section class="stats" id="stats" aria-label="Board totals"></section>
+
+  <section class="method" aria-label="How the board is built">
+    <h2>How this board is built</h2>
+    <p class="formula" id="formula"></p>
+    <ul class="method-notes" id="method-notes"></ul>
+    <div class="multiples">
+      <h3>Peer multiples from this snapshot (median market cap / TVL of tokenized protocols)</h3>
+      <div class="multiple-chips" id="multiple-chips"></div>
+    </div>
+  </section>
+
+  <section id="board-view">
+    <div class="controls" role="search">
+      <label class="control grow">Search
+        <input id="q" type="search" placeholder="Protocol name or slug" autocomplete="off">
+      </label>
+      <label class="control">Category
+        <select id="category"><option value="">All categories</option></select>
+      </label>
+      <label class="control">Chain
+        <select id="chain"><option value="">All chains</option></select>
+      </label>
+      <label class="control check">
+        <input id="watch-only" type="checkbox"> Watchlist only
+      </label>
+      <p class="count" id="count"></p>
+    </div>
+    <div class="table-wrap">
+      <table id="board">
+        <thead>
+          <tr>
+            <th data-sort="rank" class="num">#</th>
+            <th data-sort="name">Protocol</th>
+            <th data-sort="chains">Chains</th>
+            <th data-sort="tvl" class="num">TVL</th>
+            <th data-sort="change" class="num">7d</th>
+            <th data-sort="days" class="num">No-token run</th>
+            <th data-sort="multiple" class="num">Multiple</th>
+            <th data-sort="implied" class="num">Implied value</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p class="hint">Click a column heading to sort. Click any row for the protocol's detail view and its farm plan.</p>
+  </section>
+
+  <section id="detail-view" hidden>
+    <button class="back" id="back" type="button">&larr; Back to the board</button>
+    <div id="detail"></div>
+  </section>
+
+  <footer>
+    <p id="source-line"></p>
+    <p>“Records no token” is what the snapshot says: DefiLlama carries no gecko id and no symbol for these protocols. An implied value is this board's own estimate of what a launch would price at if the protocol's record stayed as it is — it is not a prediction that a token will be issued, and it is not financial advice.</p>
+  </footer>
+</main>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
